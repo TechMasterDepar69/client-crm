@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client CRM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>💼 Client Relationship Manager</h1>
+
+            <button onclick="exportToCSV()"
+                style="margin-top: 15px; margin-bottom: 20px; cursor: pointer; padding: 8px 15px;">
+                📥 Export Client Data
+            </button>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <h3>Total Clients</h3>
+                    <p id="stat-total">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Active Projects</h3>
+                    <p id="stat-active">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total Value</h3>
+                    <p id="stat-value">$0</p>
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <canvas id="myChart"></canvas>
+            </div>
+        </header>
+
+        <section class="card">
+            <h2>Add New Client</h2>
+            <form id="client-form">
+                <div class="form-group">
+                    <input type="text" id="client-name" placeholder="Client Name (e.g. John Doe / Gym A)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="service" placeholder="Service (e.g. Personal Training)" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="value" placeholder="Contract Value ($)" required>
+                </div>
+                <div class="form-group">
+                    <select id="status">
+                        <option value="New">New Lead</option>
+                        <option value="Active">Active</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Lost">Lost</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Add Client</button>
+            </form>
+        </section>
+
+        <section id="client-list">
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
