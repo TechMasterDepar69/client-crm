@@ -3,21 +3,21 @@ const mongoose = require('mongoose');
 const ClientSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please add a client name'],
+        required: [true, 'Please add a Student Name'],
         trim: true
     },
     service: {
         type: String,
-        required: [true, 'Please add a service (e.g. Personal Training)']
+        required: [true, 'Please add a Course Name (e.g. IELTS, Grammar)']
     },
     value: {
         type: Number,
-        required: [true, 'Please add a value']
+        required: [true, 'Please add Tuition Amount']
     },
     status: {
         type: String,
-        enum: ['New', 'Active', 'Completed', 'Lost'],
-        default: 'New'
+        enum: ['Trial', 'Enrolled', 'Paused', 'Graduated'],
+        default: 'Trial'
     },
     dateAdded: {
         type: Date,

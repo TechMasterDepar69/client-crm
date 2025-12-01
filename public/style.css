@@ -172,3 +172,24 @@ select {
 canvas {
     max-height: 100%;
 }
+
+/* Teacher Status Colors */
+.status-select.trial {
+    color: #d4ac0d;
+    border-color: #d4ac0d;
+}
+
+.status-select.enrolled {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.status-select.graduated {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.status-select.paused {
+    color: #6c757d;
+    border-color: #6c757d;
+}
