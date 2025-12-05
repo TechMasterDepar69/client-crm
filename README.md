@@ -1,81 +1,37 @@
-# 🚀 Career Analytics Dashboard (Full Stack)
+# 📚 Student Tuition CRM (SaaS Platform)
 
-A data-driven job application tracker designed to help job seekers manage their pipeline and analyze performance metrics. This application replaces spreadsheet chaos with a structured database and real-time visualization.
+A secure Client Relationship Management system designed for private educators and tutors to track student enrollment, manage course status, and visualize monthly revenue.
 
-**[View Live Demo](https://career-tracker-portfolio.onrender.com)**
+**[View Live Demo](https://client-crm-demo.onrender.com)**
 
 ---
 
-## 📊 Key Features
+## 🔐 Key Features (Upgrade from V1)
 
-* **Lifecycle Management:** Full CRUD capabilities (Create, Read, Update, Delete) for job applications.
-* **Real-Time Analytics:** Dashboard showing Total Applications, Interviews, and Success Rate calculations.
-* **Data Visualization:** Integrated **Chart.js** to render dynamic status breakdowns (Applied vs. Interview vs. Rejected).
-* **Data Portability:** One-click export to **CSV** for deep-dive analysis in Excel or Power BI.
-* **Strict Schema:** MongoDB validation ensures data integrity (no missing salaries or invalid dates).
+* **Secure Authentication:** Full Login/Register system using **JWT (JSON Web Tokens)** and **Bcrypt** encryption.
+* **Protected Routes:** Backend middleware prevents unauthorized access to API endpoints.
+* **Student Lifecycle:** Track statuses from `Trial` -> `Enrolled` -> `Graduated`.
+* **Revenue Analytics:** Real-time calculation of total monthly tuition and active student count.
+* **Mobile Responsive:** Fully optimized for teachers to use on their phones during class.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+), Chart.js
-* **Backend:** Node.js, Express.js (REST API)
-* **Database** MongoDB Atlas (Cloud NoSQL), Mongoose ODM
-* **Deployment** Render (Web Service), GitHub (CI/CD)
+* **Frontend:** HTML5, CSS3, Vanilla JS, Chart.js
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas
+* **Security:** JWT, Bcrypt.js, CORS
 
 ---
 
 ## 📸 Screenshots
 
-> **Dashboard View**
-> *Shows the stats and the "Add Job" interface.*
-> ![Dashboard](https://github.com/user-attachments/assets/35c81795-4b19-4fba-b68d-f4bfd93be7bc)
-
-
-> **Analytics View**
-> *Shows the Donut Chart and Success Rate metrics.*
-> ![Analytics](https://github.com/user-attachments/assets/dca9d376-63d5-46b1-aff5-c8b297c63082)
-
----
-
-## 🔧 How to Run Locally
-
-If you want to run this project on your own machine:
-
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/TechMasterDepar69/career-tracker-v1.git](https://github.com/YOUR_USERNAME/career-tracker-v1.git)
-    cd career-tracker-v1
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Configure Environment**
-    Create a `.env` file in the root directory and add your MongoDB connection:
-    ```env
-    MONGO_URI=your_mongodb_connection_string
-    PORT=5000
-    ```
-
-4.  **Run the Server**
-    ```bash
-    npm run dev
-    ```
-
-5.  **Open Browser**
-    Visit `http://localhost:5000`
+*(Add a screenshot of your Login Screen and the Student Dashboard here)*
 
 ---
 
 ## 👨‍💻 Author
 
-**Depar Min Htet**
+**Depar [Your Last Name]**
 * **GitHub:** [TechMasterDepar69](https://github.com/TechMasterDepar69)
-* **Email:** techmasterdepar69@gmail.com
-
----
-
-*This project was built as part of a Full Stack Data Analysis portfolio.*
