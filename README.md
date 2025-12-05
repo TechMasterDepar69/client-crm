@@ -4,6 +4,8 @@ A secure Client Relationship Management system designed for private educators an
 
 **[View Live Demo](https://client-crm-demo.onrender.com)**
 
+For Login - teacher@test.com
+password - password123
 ---
 
 ## 🔐 Key Features (Upgrade from V1)
@@ -27,11 +29,13 @@ A secure Client Relationship Management system designed for private educators an
 
 ## 📸 Screenshots
 
-*(Add a screenshot of your Login Screen and the Student Dashboard here)*
+![Screenshot_5-12-2025_19726_client-crm-demo onrender com](https://github.com/user-attachments/assets/fe78295a-d1e2-48c9-b502-9bb9b58005e3)
+
+![Screenshot_5-12-2025_19743_client-crm-demo onrender com](https://github.com/user-attachments/assets/96ea67d4-409e-4b77-9211-3d2b64d2d774)
 
 ---
 
 ## 👨‍💻 Author
 
-**Depar [Your Last Name]**
+**Depar Min Htet**
 * **GitHub:** [TechMasterDepar69](https://github.com/TechMasterDepar69)
