@@ -39,3 +39,8 @@ password - password123
 
 **Depar Min Htet**
 * **GitHub:** [TechMasterDepar69](https://github.com/TechMasterDepar69)
+* **Email:** techmasterdepar69@gmail.com
+
+---
+
+*This project was built as part of a Full Stack Data Analysis portfolio.*
