@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student CRM</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special styles just for the login box to center it */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .toggle-text {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card login-container">
+        <h2 id="form-title">Login</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn" id="submit-btn">Login</button>
+        </form>
+
+        <p class="toggle-text" id="toggle-mode">Need an account? Register here</p>
+        <p id="error-message" style="color: red; margin-top: 10px; display: none;"></p>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

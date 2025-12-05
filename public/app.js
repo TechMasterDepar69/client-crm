@@ -1,8 +1,38 @@
+// 🔒 SECURITY CHECK
+const token = localStorage.getItem('token');
+if (!token) {
+    window.location.href = 'login.html';
+}
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'login.html';
+}
+
 const form = document.getElementById('client-form');
 const clientList = document.getElementById('client-list');
 
-// 1. Load data when page opens
 document.addEventListener('DOMContentLoaded', getClients);
+
+// --- HELPER: AUTHENTICATED FETCH ---
+// This wrapper adds the token to every request automatically
+async function authFetch(url, options = {}) {
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // <--- THE VIP PASS
+    };
+
+    const response = await fetch(url, {
+        ...options,
+        headers: headers
+    });
+
+    if (response.status === 401) {
+        logout(); // Token expired or invalid -> Kick them out
+    }
+
+    return response;
+}
 
 // 2. Handle Form Submit
 form.addEventListener('submit', async (e) => {
@@ -15,9 +45,9 @@ form.addEventListener('submit', async (e) => {
         status: document.getElementById('status').value
     };
 
-    await fetch('/api/clients', {
+    // Use authFetch instead of normal fetch
+    await authFetch('/api/clients', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newClient)
     });
 
@@ -27,8 +57,12 @@ form.addEventListener('submit', async (e) => {
 
 // 3. Fetch and Display
 async function getClients() {
-    const res = await fetch('/api/clients');
+    // Use authFetch
+    const res = await authFetch('/api/clients');
     const data = await res.json();
+
+    if (!data.success) return; // Stop if error
+
     const clients = data.data;
 
     // --- DASHBOARD LOGIC ---
@@ -38,7 +72,7 @@ async function getClients() {
 
     document.getElementById('stat-total').innerText = total;
     document.getElementById('stat-active').innerText = active;
-    document.getElementById('stat-value').innerText = `฿${totalValue}`; // Changed to THB symbol
+    document.getElementById('stat-value').innerText = `฿${totalValue}`;
 
     // --- CHART LOGIC ---
     if (window.myChartInstance) window.myChartInstance.destroy();
@@ -57,7 +91,7 @@ async function getClients() {
             labels: ['Trial', 'Enrolled', 'Graduated', 'Paused'],
             datasets: [{
                 data: statusCounts,
-                backgroundColor: ['#f1c40f', '#2ecc71', '#3498db', '#95a5a6'] // Yellow, Green, Blue, Grey
+                backgroundColor: ['#f1c40f', '#2ecc71', '#3498db', '#95a5a6']
             }]
         },
         options: { responsive: true, maintainAspectRatio: false }
@@ -87,27 +121,23 @@ async function getClients() {
     });
 }
 
-// 4. Delete
 async function deleteClient(id) {
     if (confirm('Delete this student?')) {
-        await fetch(`/api/clients/${id}`, { method: 'DELETE' });
+        await authFetch(`/api/clients/${id}`, { method: 'DELETE' });
         getClients();
     }
 }
 
-// 5. Update Status
 async function updateStatus(id, newStatus) {
-    await fetch(`/api/clients/${id}`, {
+    await authFetch(`/api/clients/${id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
     });
     getClients();
 }
 
-// 6. Export to Excel
 function exportToCSV() {
-    fetch('/api/clients')
+    authFetch('/api/clients')
         .then(res => res.json())
         .then(data => {
             let csv = "data:text/csv;charset=utf-8,Student Name,Course,Tuition,Status,Date Added\r\n";
