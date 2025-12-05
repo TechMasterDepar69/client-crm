@@ -35,6 +35,38 @@ password - password123
 
 ---
 
+## 🔧 How to Run Locally
+
+If you want to run this CRM on your own machine, you need to configure the database credentials manually.
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/TechMasterDepar69/client-crm.git](https://github.com/TechMasterDepar69/client-crm.git)
+    cd client-crm
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment**
+    Create a `.env` file in the root directory (same level as `server.js`) and add your MongoDB connection string:
+    ```env
+    MONGO_URI=your_mongodb_connection_string
+    PORT=5000
+    ```
+
+4.  **Run the Server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Open Browser**
+    Visit `http://localhost:5000`
+
+---
+
 ## 👨‍💻 Author
 
 **Depar Min Htet**
